@@ -48,12 +48,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (myNumber) {
-    case sign_st.add: obj_num1.myNumber + obj_num2.myNumber; break;
-    case sign_st.sub: obj_num1.myNumber - obj_num2.myNumber; break;
-    case sign_st.mul: obj_num1.myNumber * obj_num2.myNumber; break;
-    case sign_st.dev: obj_num1.myNumber / obj_num2.myNumber; break;
-}
+            <string>/*switch (obj_sign.state) {
+    case sign_st.add: myNumber = (obj_num1.myNumber) + (obj_num2.myNumber); break;}
+    case sign_st.sub: myNumber = obj_num1.myNumber - obj_num2.myNumber; break;
+    case sign_st.mul: myNumber = obj_num1.myNumber * obj_num2.myNumber; break;
+    case sign_st.dev: myNumber = obj_num1.myNumber / obj_num2.myNumber; break;
+}*/
+if (obj_sign.state == sign_st.add) {myNumber = (obj_num1.myNumber) + (obj_num2.myNumber);}
+if (obj_sign.state == sign_st.sub) {myNumber = (obj_num1.myNumber) - (obj_num2.myNumber);}
+if (obj_sign.state == sign_st.mul) {myNumber = (obj_num1.myNumber) * (obj_num2.myNumber);}
+if (obj_sign.state == sign_st.dev) {myNumber = (obj_num1.myNumber) / (obj_num2.myNumber);}
 
 
 </string>

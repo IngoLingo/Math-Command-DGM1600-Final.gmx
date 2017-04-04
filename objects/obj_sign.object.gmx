@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>state = sign_st.mul;
+            <string>state = sign_st.add;
 /*
     enum sign_st {
         add,
