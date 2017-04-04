@@ -25,37 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>myNumber = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>switch (myNumber) {
-    case sign_st.add: obj_num1.myNumber + obj_num2.myNumber; break;
-    case sign_st.sub: obj_num1.myNumber - obj_num2.myNumber; break;
-    case sign_st.mul: obj_num1.myNumber * obj_num2.myNumber; break;
-    case sign_st.dev: obj_num1.myNumber / obj_num2.myNumber; break;
-}
-
-
+            <string>state = sign_st.mul;
+/*
+    enum sign_st {
+        add,
+        sub,
+        mul,
+        dev
+    }
 </string>
           </argument>
         </arguments>
@@ -81,30 +58,19 @@
             <string>//draw_self();
 draw_set_halign( fa_center );
 draw_set_valign( fa_middle );
-draw_text(x,y,myNumber);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//myNumber = irandom_range(0, 10);
+switch (state) {
+    case sign_st.add: draw_text(x,y,"+"); break;
+    case sign_st.sub: draw_text(x,y,"-"); break;
+    case sign_st.mul: draw_text(x,y,"x"); break;
+    case sign_st.dev: draw_text(x,y,"/"); break;
+}
+/*
+    enum sign_st {
+        add,
+        sub,
+        mul,
+        dev
+    }
 </string>
           </argument>
         </arguments>

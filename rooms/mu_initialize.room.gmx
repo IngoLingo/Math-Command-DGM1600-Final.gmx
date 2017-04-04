@@ -11,6 +11,12 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>randomize();
+    enum sign_st {
+        add,
+        sub,
+        mul,
+        dev
+    }
 room_goto(rm_mainGame);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
