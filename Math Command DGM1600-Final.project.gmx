@@ -11,6 +11,7 @@
     <sprite>sprites\spr_lrgGoodBox</sprite>
     <sprite>sprites\spr_smlGoodBox</sprite>
     <sprite>sprites\spr_textbox</sprite>
+    <sprite>sprites\spr_boom</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -30,6 +31,7 @@
     <object>objects\obj_sign</object>
     <object>objects\obj_text</object>
     <object>objects\obj_lazer</object>
+    <object>objects\obj_boom</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mu_initialize</room>
