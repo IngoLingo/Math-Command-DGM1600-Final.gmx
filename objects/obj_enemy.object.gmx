@@ -107,6 +107,7 @@ draw_text(x,y,myNumber);
           <argument>
             <kind>1</kind>
             <string>if (myNumber == obj_answer.myNumber) {
+    instance_create(x,y,obj_lazer);
     instance_destroy();
 }
 </string>
