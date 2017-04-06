@@ -25,7 +25,123 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>myNumber = 0;
+            <string>max_width = 50; //about 3 characters
+selected = false;
+blink = false;
+txt = "";
+alarm[0] = 30;
+can_click = true;
+myNumber = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (blink == false){
+    blink = true;
+} else {
+    blink = false;
+}
+
+alarm[0] = 30; //reset the alarm
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>myNumber = real( txt );
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (selected == true){
+    if (string_width(keyboard_string) &lt; max_width) {
+        txt = keyboard_string;
+    } else {
+        keyboard_string = string_digits( txt );
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (can_click == true) {
+    selected = true;
+    obj_num2.selected = false;
+    obj_sign.selected = false;
+    txt = " ";
+    keyboard_string = txt;
+}
 </string>
           </argument>
         </arguments>
@@ -48,33 +164,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_set_halign( fa_center );
-draw_set_valign( fa_middle );
-draw_text(x,y,myNumber);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>myNumber = irandom_range(0, 10);
+            <string>draw_set_font(text);
+draw_sprite(sprite_index, image_index, x, y);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+if (txt == ""){
+    draw_text(x, y, "0");
+} else {
+    if (blink == false || selected == false) {
+        draw_text(x, y, string_digits( txt ) + " ");
+    } else {
+        draw_text(x, y, string_digits( txt ) + "|");
+    }
+}
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 </string>
           </argument>
         </arguments>

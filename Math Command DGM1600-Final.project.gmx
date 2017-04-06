@@ -8,6 +8,8 @@
   <sprites name="sprites">
     <sprite>sprites\spr_enemyBox</sprite>
     <sprite>sprites\spr_goodBox</sprite>
+    <sprite>sprites\spr_textbox</sprite>
+    <sprite>sprites\spr_button</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -16,11 +18,13 @@
   </fonts>
   <objects name="objects">
     <object>objects\con_debug</object>
+    <object>objects\con_controler</object>
     <object>objects\obj_enemy</object>
     <object>objects\obj_answer</object>
     <object>objects\obj_num1</object>
     <object>objects\obj_num2</object>
     <object>objects\obj_sign</object>
+    <object>objects\obj_text</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mu_initialize</room>
