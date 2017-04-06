@@ -25,8 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>myNumber = irandom_range(0, 10);
+            <string>myNumber = irandom_range(-100, 100);
 drop = false;
+
+/* locked number
+
+
 </string>
           </argument>
         </arguments>
@@ -53,6 +57,7 @@ drop = false;
     y = y + 32;
     drop = false;
 }
+if (y &gt;= 576) room_restart();
 </string>
           </argument>
         </arguments>

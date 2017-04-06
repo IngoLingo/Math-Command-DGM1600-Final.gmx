@@ -173,9 +173,9 @@ if (txt == ""){
     draw_text(x, y, "0");
 } else {
     if (blink == false || selected == false) {
-        draw_text(x, y, string_digits( txt ) + " ");
+        draw_text(x, y, txt + " ");
     } else {
-        draw_text(x, y, string_digits( txt ) + "|");
+        draw_text(x, y, txt  + "|");
     }
 }
 
