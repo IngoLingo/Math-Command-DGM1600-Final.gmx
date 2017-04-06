@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dropSpeed = instance_number(obj_enemy);
+            <string>dificulty = 5;
+dropSpeed = instance_number(obj_enemy) / dificulty;
 alarm[0] = room_speed;
 
 </string>
@@ -76,7 +77,7 @@ alarm[0] = room_speed * dropSpeed;; //reset the alarm
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dropSpeed = instance_number(obj_enemy);
+            <string>dropSpeed = instance_number(obj_enemy) / dificulty;
 </string>
           </argument>
         </arguments>

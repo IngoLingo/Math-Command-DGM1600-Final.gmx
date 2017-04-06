@@ -110,7 +110,8 @@ draw_text(x-96,y,"=")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//myNumber = irandom_range(0, 10);
+            <string>with (obj_num1) {instance_destroy();}
+with (obj_num2) {instance_destroy();}
 </string>
           </argument>
         </arguments>
