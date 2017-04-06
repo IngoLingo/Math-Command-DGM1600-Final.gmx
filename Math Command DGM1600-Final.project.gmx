@@ -7,13 +7,17 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_enemyBox</sprite>
+    <sprite>sprites\spr_goodBox</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\text</font>
+  </fonts>
   <objects name="objects">
-    <object>objects\obj_enemy</object>
     <object>objects\con_debug</object>
-    <object>objects\con_controler</object>
+    <object>objects\obj_enemy</object>
+    <object>objects\obj_answer</object>
     <object>objects\obj_num1</object>
     <object>objects\obj_num2</object>
     <object>objects\obj_sign</object>

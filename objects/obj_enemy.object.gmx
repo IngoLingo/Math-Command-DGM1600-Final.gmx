@@ -74,7 +74,7 @@ draw_text(x,y,myNumber);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (myNumber == con_controler.myNumber) {
+            <string>if (myNumber == obj_answer.myNumber) {
     instance_destroy();
 }
 </string>
