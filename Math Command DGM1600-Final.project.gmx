@@ -36,6 +36,7 @@
   <rooms name="rooms">
     <room>rooms\mu_initialize</room>
     <room>rooms\rm_mainGame</room>
+    <room>rooms\rm_mainBoss</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -25,9 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dificulty = 5;
+            <string>dificulty = 1;
 dropSpeed = instance_number(obj_enemy) / dificulty;
+whatButton = 0;
 alarm[0] = room_speed;
+
 
 </string>
           </argument>
@@ -78,6 +80,34 @@ alarm[0] = room_speed * dropSpeed;; //reset the alarm
           <argument>
             <kind>1</kind>
             <string>dropSpeed = instance_number(obj_enemy) / dificulty;
+
+if keyboard_check(vk_add)       {con_controler.whatButton = 2;}
+if keyboard_check(vk_subtract)  {con_controler.whatButton = 2;}
+if keyboard_check(vk_multiply)  {con_controler.whatButton = 2;}
+if keyboard_check(vk_divide)    {con_controler.whatButton = 2;}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>whatButton = 0;
 </string>
           </argument>
         </arguments>

@@ -32,12 +32,43 @@ txt = "";
 alarm[0] = 30;
 can_click = true;
 myNumber = 0;
+
+if (global.stick == true) {
+    can_click = false;
+    myNumber = irandom_range(-100, 100);
+    txt = string(myNumber);
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (can_click == true) {
+    con_controler.whatButton = 0;
+    txt = " ";
+    keyboard_string = txt;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>201</id>
@@ -113,7 +144,20 @@ alarm[0] = 30; //reset the alarm
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>myNumber = real( txt );
+            <string>if (can_click == false) {
+    con_controler.whatButton = 2;
+}
+
+myNumber = real( txt );
+
+if keyboard_check(vk_add)       {exit;}
+if keyboard_check(vk_subtract)  {exit;}
+if keyboard_check(vk_multiply)  {exit;}
+if keyboard_check(vk_divide)    {exit;}
+
+if (con_controler.whatButton == 0) {
+    selected = true;
+    } else {selected  = false;}
 </string>
           </argument>
         </arguments>
@@ -136,7 +180,12 @@ alarm[0] = 30; //reset the alarm
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (selected == true){
+            <string>if keyboard_check(vk_add)       {keyboard_string = txt ;}
+if keyboard_check(vk_subtract)  {keyboard_string = txt ;}
+if keyboard_check(vk_multiply)  {keyboard_string = txt ;}
+if keyboard_check(vk_divide)    {keyboard_string = txt ;}
+
+if (selected == true){
     if (string_width(keyboard_string) &lt; max_width) {
         txt = keyboard_string;
     } else {
@@ -166,9 +215,7 @@ alarm[0] = 30; //reset the alarm
           <argument>
             <kind>1</kind>
             <string>if (can_click == true) {
-    selected = true;
-    obj_num2.selected = false;
-    obj_sign.selected = false;
+    con_controler.whatButton = 0;
     txt = " ";
     keyboard_string = txt;
 }
@@ -178,6 +225,35 @@ alarm[0] = 30; //reset the alarm
       </action>
     </event>
     <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Show as Selected
+if(selected == true){
+    depth = -1;
+  draw_set_blend_mode(bm_add)
+  for(c = 0;c &lt; 360;c += 18){
+    draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale,image_yscale,image_angle,image_blend,image_alpha*0.25)
+  }
+  draw_set_blend_mode(bm_normal)
+} else {depth = 0;}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -211,6 +287,33 @@ if (txt == ""){
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (can_click == true) {
+    con_controler.whatButton = 0;
+    txt = " ";
+    keyboard_string = txt;
+}
 </string>
           </argument>
         </arguments>
