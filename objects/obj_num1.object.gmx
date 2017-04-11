@@ -35,7 +35,7 @@ myNumber = 0;
 
 if (global.stick == true) {
     can_click = false;
-    myNumber = irandom_range(-100, 100);
+    myNumber = irandom_range(-10, 10);
     txt = string(myNumber);
 }
 </string>
