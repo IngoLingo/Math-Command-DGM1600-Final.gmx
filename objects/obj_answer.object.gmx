@@ -85,7 +85,10 @@ if (obj_sign.state == sign_st.dev) {myNumber = (obj_num1.myNumber) / (obj_num2.m
             <string>draw_sprite_ext( sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_dkgray, 0.5 );
 draw_set_halign( fa_center );
 draw_set_valign( fa_middle );
-draw_text(x,y,string(myNumber));
+
+if (obj_sign.state == sign_st.dev &amp;&amp; obj_num2.myNumber == 0) {
+    draw_text(x,y,"NaN");
+} else draw_text(x,y,string(myNumber));
 
 draw_text(x-96,y,"=")
 </string>
@@ -112,6 +115,7 @@ draw_text(x-96,y,"=")
             <kind>1</kind>
             <string>with (obj_num1) {instance_destroy();}
 with (obj_num2) {instance_destroy();}
+with (obj_sign) {instance_destroy();}
 </string>
           </argument>
         </arguments>

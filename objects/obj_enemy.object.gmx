@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>myNumber = irandom_range(-999, 999);
+            <string>if (global.enemy == false) {
+    myNumber = irandom_range(0, 100); //0 to 100
+} else { myNumber = irandom_range(-999, 999); }
 drop = false;
 
 /* locked number
@@ -87,7 +89,7 @@ drop = false;
     y = y + 32;
     drop = false;
 }
-if (y &gt;= 576) room_restart();
+if (y &gt;= 576) {lost = lost + 1; room_restart();}
 </string>
           </argument>
         </arguments>

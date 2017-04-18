@@ -233,9 +233,10 @@ if (selected == true){
             <string>///Show as Selected
 if(selected == true){
     depth = -1;
+  draw_sprite_ext(sprite_index,image_index,x,y,image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
   draw_set_blend_mode(bm_add)
   for(c = 0;c &lt; 360;c += 18){
-    draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale,image_yscale,image_angle,image_blend,image_alpha*0.25)
+    draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
   }
   draw_set_blend_mode(bm_normal)
 } else {depth = 0;}

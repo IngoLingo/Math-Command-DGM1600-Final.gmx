@@ -10,21 +10,8 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>randomize();
-    enum sign_st {
-        add,
-        sub,
-        mul,
-        dev
-    }
-    draw_set_font(text);
-    global.stick = false; // Makeing the first number random and stay
-    global.simbol = false; // Makeing the symbol random and stay
-    global.enemy = false; // Makeing the enemy hard
-    global.movSpeed = true; // Makeing the enemy speed fast
-    globalvar lost;
-    lost = 0;
-room_goto(mu_settings);</code>
+  <code>//global.stick = true;
+//room_goto(rm_mainGame);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -64,7 +51,13 @@ room_goto(mu_settings);</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
-  <instances/>
+  <instances>
+    <instance objName="obj_settingSwitch" x="512" y="96" name="inst_13312AE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_settingSwitch" x="512" y="224" name="inst_6A534D79" locked="0" code="button = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_settingSwitch" x="512" y="352" name="inst_7D2C945C" locked="0" code="button = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_settingSwitch" x="512" y="480" name="inst_8BE39AB9" locked="0" code="button = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_playGame" x="448" y="640" name="inst_0EA20B17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+  </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

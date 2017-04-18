@@ -25,12 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dificulty = 1;
+            <string>if (global.movSpeed == false) {
+    dificulty = 0.5;
+} else { dificulty = 2; }
+
 dropSpeed = instance_number(obj_enemy) / dificulty;
 whatButton = 0;
 alarm[0] = room_speed;
-
-
 </string>
           </argument>
         </arguments>
@@ -55,7 +56,7 @@ alarm[0] = room_speed;
             <kind>1</kind>
             <string>if instance_exists(obj_enemy) {
 obj_enemy.drop = true;
-alarm[0] = room_speed * dropSpeed;; //reset the alarm
+alarm[0] = room_speed * dropSpeed; //reset the alarm
 }
 </string>
           </argument>
@@ -85,6 +86,62 @@ if keyboard_check(vk_add)       {con_controler.whatButton = 2;}
 if keyboard_check(vk_subtract)  {con_controler.whatButton = 2;}
 if keyboard_check(vk_multiply)  {con_controler.whatButton = 2;}
 if keyboard_check(vk_divide)    {con_controler.whatButton = 2;}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check to see if there are no enemy's on screen
+if (!instance_exists(obj_enemy)) {
+    if (room == rm_win) {
+        exit;
+    } else room_goto_next();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_text(x,y,"Times Lost: " + string(lost));
+
+if (room == rm_win){ 
+    draw_set_halign(fa_center);
+    draw_text(room_width/2, room_width/2, "CONGRATULATIONS#YOU WIN!!##(press R to restart.)"); 
+    }
 </string>
           </argument>
         </arguments>
