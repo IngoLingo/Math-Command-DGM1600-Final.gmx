@@ -7,17 +7,43 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_enemyBox</sprite>
+    <sprite>sprites\spr_goodBox</sprite>
+    <sprite>sprites\spr_lrgGoodBox</sprite>
+    <sprite>sprites\spr_smlGoodBox</sprite>
+    <sprite>sprites\spr_textbox</sprite>
+    <sprite>sprites\spr_boom</sprite>
+    <sprite>sprites\spr_switch</sprite>
+    <sprite>sprites\spr_playGame</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\IDEAS.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\text</font>
+  </fonts>
   <objects name="objects">
-    <object>objects\obj_enemy</object>
     <object>objects\con_debug</object>
     <object>objects\con_controler</object>
+    <object>objects\obj_enemy</object>
+    <object>objects\obj_answer</object>
+    <object>objects\obj_num1</object>
+    <object>objects\obj_num2</object>
+    <object>objects\obj_sign</object>
+    <object>objects\obj_text</object>
+    <object>objects\obj_lazer</object>
+    <object>objects\obj_boom</object>
+    <object>objects\obj_settingSwitch</object>
+    <object>objects\obj_playGame</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mu_initialize</room>
-    <room>rooms\rm_mainGame</room>
+    <room>rooms\mu_settings</room>
+    <room>rooms\rm_begin</room>
+    <room>rooms\rm_mid</room>
+    <room>rooms\rm_boss</room>
+    <room>rooms\rm_win</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

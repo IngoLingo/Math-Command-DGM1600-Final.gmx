@@ -1,0 +1,132 @@
+Information about object: obj_num2
+Sprite: spr_goodBox
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+max_width = 80; //about 4 characters
+selected = false;
+blink = false;
+txt = "";
+alarm[0] = 30;
+can_click = true;
+myNumber = 0;
+
+Destroy Event:
+
+execute code:
+
+if (can_click == true) {
+    txt = " ";
+    keyboard_string = txt;
+}
+
+create instance of object obj_num2 at position (x,y)
+Alarm Event for alarm 0:
+
+execute code:
+
+if (blink == false){
+    blink = true;
+} else {
+    blink = false;
+}
+
+alarm[0] = 30; //reset the alarm
+
+Step Event:
+
+execute code:
+
+myNumber = real( txt );
+
+if keyboard_check(vk_add)       {con_controler.whatButton = 2; exit;}
+if keyboard_check(vk_subtract)  {con_controler.whatButton = 2; exit;}
+if keyboard_check(vk_multiply)  {con_controler.whatButton = 2; exit;}
+if keyboard_check(vk_divide)    {con_controler.whatButton = 2; exit;}
+
+if (con_controler.whatButton == 2) {
+    selected = true;
+    } else {selected  = false;}
+
+Keyboard Event for <any key> Key:
+
+execute code:
+
+if keyboard_check(vk_add)       {keyboard_string = txt ;}
+if keyboard_check(vk_subtract)  {keyboard_string = txt ;}
+if keyboard_check(vk_multiply)  {keyboard_string = txt ;}
+if keyboard_check(vk_divide)    {keyboard_string = txt ;}
+
+if (selected == true){
+    if (string_width(keyboard_string) < max_width) {
+        txt = keyboard_string;
+    } else {
+        keyboard_string = txt ;
+    }
+}
+
+Mouse Event for Left Pressed:
+
+execute code:
+
+if (can_click == true) {
+    con_controler.whatButton = 2;
+    txt = " ";
+    keyboard_string = txt;
+}
+
+Draw Event:
+
+execute code:
+
+///Show as Selected
+if(selected == true){
+    depth = -1;
+  draw_sprite_ext(sprite_index,image_index,x,y,image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+  draw_set_blend_mode(bm_add)
+  for(c = 0;c < 360;c += 18){
+    draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+  }
+  draw_set_blend_mode(bm_normal)
+} else {depth = 0;}
+
+execute code:
+
+draw_set_font(text);
+draw_sprite(sprite_index, image_index, x, y);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+if (txt == ""){
+    draw_text(x, y, "0");
+} else {
+    if (blink == false || selected == false) {
+        draw_text(x, y, txt + " ");
+    } else {
+        draw_text(x, y, txt + "|");
+    }
+}
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
+Key Release Event for <Enter> Key:
+
+execute code:
+
+if (can_click == true) {
+    txt = " ";
+    keyboard_string = txt;
+}
+
+______________________________________________________

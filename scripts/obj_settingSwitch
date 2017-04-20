@@ -1,0 +1,73 @@
+Information about object: obj_settingSwitch
+Sprite: spr_switch
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+on = false;
+button = 0;
+
+Step Event:
+
+execute code:
+
+/*if (on == false){
+    image_index = 0;
+} else image_index = 1;*/
+image_index = on;
+
+switch (button)
+ {
+ case 0: global.stick = on; break;
+ case 1: global.simbol = on; break;
+ case 2: global.enemy = on; break;
+ case 3: global.movSpeed = on; break;
+ }
+
+Mouse Event for Left Released:
+
+execute code:
+
+on = !on;
+
+Draw Event:
+
+execute code:
+
+///Glow with mouse over
+if position_meeting(mouse_x, mouse_y, self) {
+    depth = -1;
+    draw_sprite_ext(sprite_index,2,x,y,image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+    draw_set_blend_mode(bm_add)
+    for(c = 0;c < 360;c += 18){
+    draw_sprite_ext(sprite_index,2,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+  }
+  draw_set_blend_mode(bm_normal)
+}
+draw_self();
+
+execute code:
+
+///Draw the name of the switch to the left
+draw_set_halign(fa_right);
+draw_set_valign(fa_middle);
+draw_set_font(text);
+switch (button)
+ {
+ case 0: draw_text(x - 124,y,"Random 1st Number: "); break;
+ case 1: draw_text(x - 124,y,"Random Operations: "); break;
+ case 2: draw_text(x - 124,y,"Sronger Enemies: "); break;
+ case 3: draw_text(x - 124,y,"Fast Enemies: "); break;
+ }
+ draw_set_halign(fa_center);
+
+______________________________________________________

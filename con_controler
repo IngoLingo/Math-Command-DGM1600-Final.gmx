@@ -1,0 +1,72 @@
+Information about object: con_controler
+Sprite: 
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+if (global.movSpeed == false) {
+    dificulty = 0.5;
+} else { dificulty = 2; }
+
+dropSpeed = instance_number(obj_enemy) / dificulty;
+whatButton = 0;
+alarm[0] = room_speed;
+
+Alarm Event for alarm 0:
+
+execute code:
+
+if instance_exists(obj_enemy) {
+obj_enemy.drop = true;
+alarm[0] = room_speed * dropSpeed; //reset the alarm
+}
+
+Step Event:
+
+execute code:
+
+dropSpeed = instance_number(obj_enemy) / dificulty;
+
+if keyboard_check(vk_add)       {con_controler.whatButton = 2;}
+if keyboard_check(vk_subtract)  {con_controler.whatButton = 2;}
+if keyboard_check(vk_multiply)  {con_controler.whatButton = 2;}
+if keyboard_check(vk_divide)    {con_controler.whatButton = 2;}
+
+execute code:
+
+///Check to see if there are no enemy's on screen
+if (!instance_exists(obj_enemy)) {
+    if (room == rm_win) {
+        exit;
+    } else room_goto_next();
+}
+
+Draw Event:
+
+execute code:
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_text(x,y,"Times Lost: " + string(lost));
+
+if (room == rm_win){ 
+    draw_set_halign(fa_center);
+    draw_text(room_width/2, room_width/2, "CONGRATULATIONS#YOU WIN!!##(press R to restart.)"); 
+    }
+
+Key Release Event for <Enter> Key:
+
+execute code:
+
+whatButton = 0;
+
+______________________________________________________

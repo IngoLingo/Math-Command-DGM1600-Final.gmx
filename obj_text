@@ -1,0 +1,39 @@
+Information about object: obj_text
+Sprite: 
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+alph = 1; //Our starting alpha
+
+Step Event:
+
+execute code:
+
+alph -= 0.01;
+if (alpha < 0) {
+    instance_destroy();
+}
+
+Draw Event:
+
+execute code:
+
+///Draw everything
+
+draw_set_alpha(alph);
+draw_set_halign(fa_center);
+draw_text(x, y, txt);
+draw_set_halign(fa_left);
+draw_set_alpha(1)// reset the alpha to one
+
+______________________________________________________
