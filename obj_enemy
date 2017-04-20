@@ -1,0 +1,69 @@
+Information about object: obj_enemy
+Sprite: spr_enemyBox
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+if (global.enemy == false) {
+    myNumber = irandom_range(0, 100); //0 to 100
+} else { myNumber = irandom_range(-999, 999); }
+drop = false;
+
+/* locked number
+
+
+
+Destroy Event:
+
+create instance of object obj_boom at position (x,y)
+Step Event:
+
+execute code:
+
+if (drop == true) {
+    y = y + 32;
+    drop = false;
+}
+if (y >= 576) {lost = lost + 1; room_restart();}
+
+Draw Event:
+
+execute code:
+
+///Show as Selected
+if(myNumber == obj_answer.myNumber){
+    depth = -1;
+  draw_set_blend_mode(bm_add)
+  for(c = 0;c < 360;c += 18){
+    draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale,image_yscale,image_angle,image_blend,image_alpha*0.25)
+  }
+  draw_set_blend_mode(bm_normal)
+} else {depth = 0;}
+
+
+execute code:
+
+draw_self();
+draw_set_halign( fa_center );
+draw_set_valign( fa_middle );
+draw_text(x,y,myNumber);
+
+Key Press Event for <Enter> Key:
+
+execute code:
+
+if (myNumber == obj_answer.myNumber) {
+    instance_create(x,y,obj_lazer);
+    instance_destroy();
+}
+
+______________________________________________________

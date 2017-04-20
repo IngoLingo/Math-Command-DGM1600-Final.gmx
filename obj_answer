@@ -1,0 +1,57 @@
+Information about object: obj_answer
+Sprite: spr_lrgGoodBox
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+myNumber = 0;
+
+Step Event:
+
+execute code:
+
+/*switch (obj_sign.state) {
+    case sign_st.add: myNumber = (obj_num1.myNumber) + (obj_num2.myNumber); break;}
+    case sign_st.sub: myNumber = obj_num1.myNumber - obj_num2.myNumber; break;
+    case sign_st.mul: myNumber = obj_num1.myNumber * obj_num2.myNumber; break;
+    case sign_st.dev: myNumber = obj_num1.myNumber / obj_num2.myNumber; break;
+}*/
+if (obj_sign.state == sign_st.add) {myNumber = (obj_num1.myNumber) + (obj_num2.myNumber);}
+if (obj_sign.state == sign_st.sub) {myNumber = (obj_num1.myNumber) - (obj_num2.myNumber);}
+if (obj_sign.state == sign_st.mul) {myNumber = (obj_num1.myNumber) * (obj_num2.myNumber);}
+if (obj_sign.state == sign_st.dev) {myNumber = (obj_num1.myNumber) / (obj_num2.myNumber);}
+
+
+
+Draw Event:
+
+execute code:
+
+draw_sprite_ext( sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_dkgray, 0.5 );
+draw_set_halign( fa_center );
+draw_set_valign( fa_middle );
+
+if (obj_sign.state == sign_st.dev && obj_num2.myNumber == 0) {
+    draw_text(x,y,"NaN");
+} else draw_text(x,y,string(myNumber));
+
+draw_text(x-96,y,"=")
+
+Key Release Event for <Enter> Key:
+
+execute code:
+
+with (obj_num1) {instance_destroy();}
+with (obj_num2) {instance_destroy();}
+with (obj_sign) {instance_destroy();}
+
+______________________________________________________

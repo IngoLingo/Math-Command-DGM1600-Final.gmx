@@ -1,0 +1,21 @@
+Information about object: obj_boom
+Sprite: spr_boom
+Solid: false
+Visible: true
+Depth: -99
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+alarm[0] = room_speed / 2;
+
+Alarm Event for alarm 0:
+
+destroy the instance
+______________________________________________________

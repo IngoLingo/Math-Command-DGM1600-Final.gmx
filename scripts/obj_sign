@@ -1,0 +1,100 @@
+Information about object: obj_sign
+Sprite: spr_smlGoodBox
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+//state = sign_st.add;
+selected = false;
+
+if (global.simbol == true) {
+    can_click = false;
+    state = irandom_range(0, 3);
+} else {can_click = true; state = 0;}
+/*
+    enum sign_st {
+        add,
+        sub,
+        mul,
+        dev
+    }
+
+Destroy Event:
+
+create instance of object obj_sign at position (x,y)
+Step Event:
+
+execute code:
+
+if (can_click == false) {exit;}
+
+if (con_controler.whatButton == 1) {
+    selected = true;
+    } else {selected  = false;}
+
+if keyboard_check(vk_add)       {state = sign_st.add;}
+if keyboard_check(vk_subtract)  {state = sign_st.sub;}
+if keyboard_check(vk_multiply)  {state = sign_st.mul;}
+if keyboard_check(vk_divide)    {state = sign_st.dev;}
+
+
+/*
+    enum sign_st {
+        add,
+        sub,
+        mul,
+        dev
+    }
+
+Mouse Event for Left Pressed:
+
+execute code:
+
+if (can_click == false) {exit;}
+con_controler.whatButton = 1;
+
+Draw Event:
+
+execute code:
+
+///Show as Selected
+if(selected == true){
+    depth = -1;
+  draw_sprite_ext(sprite_index,image_index,x,y,image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+  draw_set_blend_mode(bm_add)
+  for(c = 0;c < 360;c += 18){
+    draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+  }
+  draw_set_blend_mode(bm_normal)
+} else {depth = 0;}
+
+execute code:
+
+draw_self();
+draw_set_halign( fa_center );
+draw_set_valign( fa_middle );
+switch (state) {
+    case sign_st.add: draw_text(x,y,"+"); break;
+    case sign_st.sub: draw_text(x,y,"-"); break;
+    case sign_st.mul: draw_text(x,y,"x"); break;
+    case sign_st.dev: draw_text(x,y,"/"); break;
+}
+
+/*
+    enum sign_st {
+        add,
+        sub,
+        mul,
+        dev
+    }
+
+______________________________________________________

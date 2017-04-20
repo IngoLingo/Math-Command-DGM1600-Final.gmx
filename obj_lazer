@@ -1,0 +1,27 @@
+Information about object: obj_lazer
+Sprite: 
+Solid: false
+Visible: true
+Depth: -9
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+alarm[0] = room_speed / 3;
+
+Alarm Event for alarm 0:
+
+destroy the instance
+Draw Event:
+
+execute code:
+
+draw_line_width_colour(obj_answer.x, obj_answer.y - 20, x, y, 4, c_blue, c_blue); 
+
+______________________________________________________

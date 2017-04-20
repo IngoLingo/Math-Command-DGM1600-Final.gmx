@@ -1,0 +1,33 @@
+Information about object: obj_playGame
+Sprite: spr_playGame
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Mouse Event for Left Released:
+
+execute code:
+
+room_goto_next();
+
+Draw Event:
+
+execute code:
+
+if position_meeting(mouse_x, mouse_y, self) {
+    depth = -1;
+    draw_sprite_ext(sprite_index,1,x,y,image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+    draw_set_blend_mode(bm_add)
+    for(c = 0;c < 360;c += 18){
+    draw_sprite_ext(sprite_index,1,x+lengthdir_x(4,c),y+lengthdir_y(4,c),image_xscale+0.1,image_yscale+0.1,image_angle,image_blend,image_alpha*0.5)
+  }
+  draw_set_blend_mode(bm_normal)
+}
+draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
+
+______________________________________________________
